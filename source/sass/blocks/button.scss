@@ -1,0 +1,26 @@
+.button {
+  margin: 0;
+  padding: 10px 20px;
+  width: 100%;
+  min-height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 21px;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  color: $color-black;
+  background-color: $color-accent;
+  outline: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover,
+  &:active {
+    transition: background-color 0.2s ease-out;
+    // background-color: $color-accent-hover;
+  }
+}

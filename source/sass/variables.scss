@@ -1,0 +1,23 @@
+// Цвета
+$color-accent: rgb(0, 178, 255);
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(255, 255, 255);
+
+// Отступы
+$mobile-padding: 15px;
+$tablet-padding: 25px;
+$desktop-padding: 73px;
+
+// Размеры вьюпорта
+$mobile-width: 767.8px;
+$tablet-width: 1023.8px;
+$desktop-width: 1024px;
+
+$additional-container: 1440px; // 1414px??
+
+// Шрифты
+$main-font: "Roboto Condensed", "Roboto", "Arial", sans-serif;
+$main-font: "PT Mono", "Courier New", monospace;
+
+// Для ретинизации
+$retina-dppx: 1.5dppx;
