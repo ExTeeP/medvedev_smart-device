@@ -1,0 +1,105 @@
+.accordeon:hover .accordeon__label {
+  @media (max-width: $mobile-width) {
+    cursor: pointer;
+  }
+}
+
+.accordeon__label h4 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: $main-font;
+  font-size: 15px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-dark-blue;
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 0;
+    padding-top: 29px;
+    padding-bottom: 27px;
+  }
+}
+
+.accordeon__checkbox {
+  display: none;
+
+  @media (max-width: $mobile-width) {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+.accordeon__container {
+  @media (max-width: $mobile-width) {
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.accordeon__content {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  padding-top: 5px;
+  list-style: none;
+
+  @media (max-width: $mobile-width) {
+    margin-top: -100%;
+    transition: all 400ms;
+  }
+}
+
+.accordeon__item {
+  min-width: 195px;
+  max-width: 340px;
+}
+
+.accordeon__item a {
+  color: inherit;
+
+  &:focus,
+  &:hover {
+    transition: color 0.2s ease-out;
+    color: $color-accent;
+  }
+}
+.accordeon__checkbox-custom {
+  display: none;
+
+  @media (max-width: $mobile-width) {
+    display: block;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: #C4C4C4;
+      position: absolute;
+      top: 36px;
+      right: 2px;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.accordeon__checkbox:checked + .accordeon__checkbox-custom {
+  @media (max-width: $mobile-width) {
+    &::after {
+      height: 0;
+    }
+  }
+}
+
+.accordeon__checkbox:checked ~ .accordeon__container > .accordeon__content {
+  @media (max-width: $mobile-width) {
+    margin-top: 0;
+  }
+}

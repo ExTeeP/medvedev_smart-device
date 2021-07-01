@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html class="page nojs" lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997 года. Выполняем срочные заказы и пилотные образцы до 10 дней.">
+  <meta name="description"
+    content="Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997 года. Выполняем срочные заказы и пилотные образцы до 10 дней.">
   <title>Smart Device - Печатные платы</title>
   <link rel="preload" href="./fonts/RobotoCondensed-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="./fonts/RobotoCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -13,25 +15,190 @@
 </head>
 
 <body class="page__body">
-  <header class="header">
-    <div class="header__container">
+  <header class="page__header header">
+    <div class="additional-container header__inner">
       <a class="header__logo">
-        <img src="./img/logo.svg" width="68" height="21" alt="Логотип компании" />
+        <img src="./img/logo.svg" width="52" height="52" alt="Smart Device" />
+        <img class="header__logo-text" src="./img/logo-text.svg" width="134" height="45" alt="Умные технологии">
       </a>
+
+      <ul class="header__links">
+        <li class="header__link">
+          <a href="mailto:info@sd.ru">
+            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" aria-hidden="true">
+              <use xlink:href="./img/icon/sprite_auto.svg#icon-mail"></use>
+            </svg>
+            <span>info@sd.ru</span>
+          </a>
+        </li>
+        <li class="header__link">
+          <a href="tel:+74950005252">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <use xlink:href="./img/icon/sprite_auto.svg#icon-phone"></use>
+            </svg>
+            <span>+7 (495) 000 52 52</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="header__button-wrapper">
+        <button class="header__button-call">Заказать звонок</button>
+      </div>
 
     </div>
   </header>
 
   <main class="page__main">
-    <h1></h1>
+    <h1 class="visually-hidden"></h1>
 
+    <section class="greeting">
+      <div class="additional-container greeting__inner">
+        <h2>Печатные платы</h2>
+        <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
 
+        <a class="greeting__button button" href="#block-">
+          <span class="greeting__button-text-desktop">Получить бесплатную консультацию</span>
+          <span class="greeting__button-text-mobile">Бесплатная консультация</span>
+        </a>
+        <div class="greeting__image">
+          <picture>
+            <source media="(max-width: 1023.8px)" type="image/webP"
+            srcset="./img/circuit-tablet@1x.webp 1x, ./img/circuit-tablet@2x.webp 2x" />
+            <source media="(max-width: 1023.8px)"
+              srcset="./img/circuit-tablet@1x.png 1x, ./img/circuit-tablet@2x.png 2x" />
+
+            <source media="(min-width: 1024px)" type="image/webP"
+              srcset="./img/circuit-desktop@1x.webp 1x, ./img/circuit-desktop@2x.webp 2x" />
+
+            <!-- 1x: 705 2x: 515 -->
+            <img width="705" height="515" src="./img/circuit-desktop@1x.png" srcset="./img/circuit-desktop@2x.png 2x" alt="Печатные платы для ваших компьютеров" />
+          </picture>
+        </div>
+        <a class="greeting__scroll-button">
+          Скролл вниз
+        </a>
+      </div>
+    </section>
+
+    <div class="container">
+
+    </div>
   </main>
 
   <footer class="page__footer footer">
-    <div class="footer__container">
+    <div class="additional-container footer__inner">
+      <a class="footer__logo">
+        <img src="./img/logo-footer.svg" width="216" height="52" alt="Smart Device" />
+      </a>
+
+      <div class="footer__year">1999-2018 SD Service Devices</div>
+
+      <div class="footer__social social">
+        <h4 class="visually-hidden">Социальные сети</h4>
+
+        <ul class="social__list">
+          <li class="social__item">
+            <a href="#">
+              <span class="visually-hidden">Фейсбук</span>
+              <svg width="27" height="27" viewBox="0 0 27 27" fill="none" aria-hidden="true">
+                <use xlink:href="./img/icon/sprite_auto.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="#">
+              <span class="visually-hidden">Одноклассники</span>
+              <svg width="27" height="26" viewBox="0 0 27 26" fill="none" aria-hidden="true">
+                <use xlink:href="./img/icon/sprite_auto.svg#icon-odnoklassniki"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="#">
+              <span class="visually-hidden">Вконтакте</span>
+              <svg width="27" height="26" viewBox="0 0 27 26" fill="none" aria-hidden="true">
+                <use xlink:href="./img/icon/sprite_auto.svg#icon-vkontakte"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="footer__nav">
+        <div class="accordeon">
+          <label class="accordeon__label" for="accordeon-1">
+            <h4>Разделы сайта</h4>
+          </label>
+          <input class="accordeon__checkbox" type="radio" name="accordeon" id="accordeon-1" />
+          <div class="accordeon__checkbox-custom"></div>
+
+          <div class="accordeon__container">
+            <ul class="accordeon__content">
+              <li class="accordeon__item">
+                <a href="#">О компании</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Продукты</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Производство печатных плат</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Монтаж печатных плат</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Комплектующие</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Доставка</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="footer__contacts">
+        <div class="accordeon">
+          <label class="accordeon__label" for="accordeon-2">
+            <h4>Наш офис</h4>
+          </label>
+          <input class="accordeon__checkbox" type="radio" name="accordeon" id="accordeon-2" />
+          <div class="accordeon__checkbox-custom"></div>
+
+          <div class="accordeon__container">
+            <ul class="accordeon__content">
+              <li class="accordeon__item">
+                <span>г. Мытищи, Олимпийский проспект, д.10</span>
+              </li>
+              <li class="accordeon__item">
+                <a href="tel:+74955894050">+7 (495) 589-40-50</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="tel:+79250038767">+7 (925) 003-87-67</a>
+              </li>
+              <li class="accordeon__item">
+                <a href="tel:+792692608079">+7 (926) 926-080-79</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__copyright copyright">
+        <span class="copyright__law">Все права защищены</span>
+        <span class="copyright__year">1999-2018 SD Service Devices</span>
+        <a class="copyright__terms" href="#">Условия конфиденциальности</a>
+        <a class="copyright__develop" href="#">Developed by wow studio</a>
+      </div>
     </div>
   </footer>
   <!-- <script src="./js/main.js"></script> -->
+
+<script>
+</script>
 </body>
+
 </html>

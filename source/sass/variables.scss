@@ -1,7 +1,12 @@
 // Цвета
 $color-accent: rgb(0, 178, 255);
+$color-accent-hover: rgb(34, 121, 159);
 $color-black: rgb(0, 0, 0);
+$color-dark-blue: rgb(27, 45, 55);
+$color-dark-blue-a50: rgba(27, 45, 55, 0.5);
 $color-white: rgb(255, 255, 255);
+$color-grey-a20: rgba(98, 105, 98, 0.2);
+$color-background: rgb(27, 45, 55);
 
 // Отступы
 $mobile-padding: 15px;
@@ -14,10 +19,12 @@ $tablet-width: 1023.8px;
 $desktop-width: 1024px;
 
 $additional-container: 1440px; // 1414px??
+$additional-padding: 12px;
+
 
 // Шрифты
 $main-font: "Roboto Condensed", "Roboto", "Arial", sans-serif;
-$main-font: "PT Mono", "Courier New", monospace;
+$second-font: "PT Mono", "Courier New", monospace;
 
 // Для ретинизации
 $retina-dppx: 1.5dppx;

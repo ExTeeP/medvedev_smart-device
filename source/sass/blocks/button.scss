@@ -2,17 +2,19 @@
   margin: 0;
   padding: 10px 20px;
   width: 100%;
-  min-height: 51px;
+  min-height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 21px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   text-align: center;
   border: none;
-  border-radius: 6px;
-  color: $color-black;
+  border-radius: 5px;
+  color: $color-white;
   background-color: $color-accent;
   outline: none;
   cursor: pointer;
@@ -21,6 +23,6 @@
   &:hover,
   &:active {
     transition: background-color 0.2s ease-out;
-    // background-color: $color-accent-hover;
+    background-color: $color-accent-hover;
   }
 }

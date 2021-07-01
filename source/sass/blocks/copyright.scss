@@ -1,0 +1,52 @@
+.copyright {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+}
+
+.copyright__law {
+  margin-right: 74px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.copyright__year {
+  margin-right: 143px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.copyright__terms {
+  margin-right: 20px;
+
+  @media (max-width: $mobile-width) {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.copyright__develop {
+  margin-right: 4px;
+  margin-left: auto;
+
+  @media (max-width: $mobile-width) {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.copyright a {
+  color: inherit;
+}
