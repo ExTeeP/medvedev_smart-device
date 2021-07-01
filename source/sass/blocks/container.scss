@@ -13,3 +13,18 @@
     padding: 0 $mobile-padding;
   }
 }
+
+.additional-container {
+  max-width: $additional-container;
+  margin: 0 auto;
+  padding: 0 $additional-padding;
+
+  @media (max-width: $tablet-width) {
+    max-width: $tablet-width;
+    padding: 0 $tablet-padding;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0 $mobile-padding;
+  }
+}

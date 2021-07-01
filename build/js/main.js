@@ -141,3 +141,26 @@ document.documentElement.classList.remove('nojs');
     inputTel.addEventListener('click', onClick);
   }
 })();
+
+// Закрытие аккордеона при повторном нажатии
+(function () {
+  var accordeonButton = document.querySelectorAll('.accordeon__checkbox');
+
+  function clickRadio() {
+    for (var i = 0; i < accordeonButton.length; i++) {
+      if (accordeonButton[i] != this) {
+        accordeonButton[i].oldChecked = false;
+      }
+    }
+
+    if (this.oldChecked) {
+      this.checked = false;
+    }
+
+    this.oldChecked = this.checked;
+  }
+
+  for (var i = 0; i < accordeonButton.length; i++) {
+    accordeonButton[i].addEventListener('click', clickRadio)
+  }
+})();
