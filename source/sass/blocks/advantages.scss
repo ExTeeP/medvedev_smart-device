@@ -1,0 +1,119 @@
+.advantages {
+  padding-top: 112px;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 54px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 37px;
+  }
+}
+
+.advantages__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+
+  @media (max-width: $tablet-width) {
+    justify-content: center;
+  }
+}
+
+.advantages__item {
+  margin-right: 30px;
+  margin-bottom: 30px;
+  padding: 39px 42px;
+  width: calc(50% - 15px);
+  max-width: 570px;
+  min-height: 299px;
+  border: 1px solid #EBEBEB;
+  border-left: 3px solid $color-accent;
+  color: $color-accent;
+
+  &:hover {
+    transition:
+      background-color 0.2s ease-out,
+      color 0.2s ease-out,
+      border-color 0.2s ease-out;
+    background-color: $color-accent;
+    color: $color-white;
+    border-color: $color-accent;
+  }
+
+  @media (max-width: $tablet-width) {
+    margin-bottom: 20px;
+    padding: 23px 24px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    max-width: 345px;
+    min-height: 232px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    border-left-width: 2px;
+  }
+}
+
+.advantages__item:last-child,
+.advantages__item:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+.advantages__item svg {
+  margin-bottom: 11px;
+  height: 35px;
+  color: inherit;
+
+  @media (max-width: $tablet-width) {
+    margin-bottom: 0px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 5px;
+  }
+}
+
+.advantages__item h3 {
+  margin: 0;
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 34px;
+  color: inherit;
+
+  @media (max-width: $tablet-width) {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: $mobile-width) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.advantages__item p {
+  margin: 0;
+  margin-bottom: 16px;
+  font-family: $second-font;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-grey;
+
+
+  @media (max-width: $mobile-width) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.advantages__item:hover p {
+  transition: color 0.2s ease-out;
+  color: $color-white;
+}

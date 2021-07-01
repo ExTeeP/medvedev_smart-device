@@ -1,166 +1,168 @@
 'use strict';
 
-document.documentElement.classList.remove('nojs');
+// document.documentElement.classList.remove('nojs');
 
-// Оптимизация ресайза окна
-(function () {
-  var throttle = function (type, name, obj) {
-    obj = obj || window;
-    var running = false;
+// // Оптимизация ресайза окна
+// (function () {
+//   var throttle = function (type, name, obj) {
+//     obj = obj || window;
+//     var running = false;
 
-    var func = function () {
-      if (running) {
-        return;
-      }
+//     var func = function () {
+//       if (running) {
+//         return;
+//       }
 
-      running = true;
+//       running = true;
 
-      requestAnimationFrame(function () {
-        obj.dispatchEvent(new CustomEvent(name));
-        running = false;
-      });
-    };
+//       requestAnimationFrame(function () {
+//         obj.dispatchEvent(new CustomEvent(name));
+//         running = false;
+//       });
+//     };
 
-    obj.addEventListener(type, func);
-  };
+//     obj.addEventListener(type, func);
+//   };
 
-  throttle('resize', 'optimizedResize');
-})();
+//   throttle('resize', 'optimizedResize');
+// })();
 
-// Переключаетль меню
-(function () {
-  var MAX_WIDTH = 1023;
+// // Переключаетль меню
+// (function () {
+//   var MAX_WIDTH = 1023;
 
-  var toggle = document.querySelector('.burger');
-  var menu = document.querySelector('.header__nav');
+//   var toggle = document.querySelector('.burger');
+//   var menu = document.querySelector('.header__nav');
 
-  var changeButtonLabel = function () {
-    if (toggle.classList.contains('burger__active')) {
-      toggle.children[0].innerText = 'Закрыть меню';
-    } else {
-      toggle.children[0].innerText = 'Открыть меню';
-    }
-  };
+//   var changeButtonLabel = function () {
+//     if (toggle.classList.contains('burger__active')) {
+//       toggle.children[0].innerText = 'Закрыть меню';
+//     } else {
+//       toggle.children[0].innerText = 'Открыть меню';
+//     }
+//   };
 
-  var showerMenu = function () {
-    document.documentElement.classList.toggle('page--menu-open');
-    toggle.classList.toggle('burger__active');
-    menu.classList.toggle('header__menu-open');
+//   var showerMenu = function () {
+//     document.documentElement.classList.toggle('page--menu-open');
+//     toggle.classList.toggle('burger__active');
+//     menu.classList.toggle('header__menu-open');
 
-    changeButtonLabel();
-  };
+//     changeButtonLabel();
+//   };
 
-  var onMenuLinkClick = function (evt) {
-    if (evt.target.tagName === 'A') {
-      showerMenu();
-    }
-  };
+//   var onMenuLinkClick = function (evt) {
+//     if (evt.target.tagName === 'A') {
+//       showerMenu();
+//     }
+//   };
 
-  var onMenuButtonClick = function () {
-    showerMenu();
-  };
+//   var onMenuButtonClick = function () {
+//     showerMenu();
+//   };
 
-  var menuToggleHandlers = function () {
-    if (window.innerWidth > MAX_WIDTH) {
-      toggle.removeEventListener('click', onMenuButtonClick);
-      menu.removeEventListener('click', onMenuLinkClick);
-    } else {
-      toggle.addEventListener('click', onMenuButtonClick);
-      menu.addEventListener('click', onMenuLinkClick);
-    }
-  };
+//   var menuToggleHandlers = function () {
+//     if (window.innerWidth > MAX_WIDTH) {
+//       toggle.removeEventListener('click', onMenuButtonClick);
+//       menu.removeEventListener('click', onMenuLinkClick);
+//     } else {
+//       toggle.addEventListener('click', onMenuButtonClick);
+//       menu.addEventListener('click', onMenuLinkClick);
+//     }
+//   };
 
-  toggle.addEventListener('click', onMenuButtonClick);
-  menu.addEventListener('click', onMenuLinkClick);
+//   toggle.addEventListener('click', onMenuButtonClick);
+//   menu.addEventListener('click', onMenuLinkClick);
 
-  menuToggleHandlers();
+//   menuToggleHandlers();
 
-  window.addEventListener('optimizedResize', function () {
-    menuToggleHandlers();
-  });
-})();
+//   window.addEventListener('optimizedResize', function () {
+//     menuToggleHandlers();
+//   });
+// })();
 
-// Плавная прокрутка по якорям
-(function () {
-  var pageAnchors = document.querySelectorAll('a[href^="#block-"]');
+// // Плавная прокрутка по якорям
+// (function () {
+//   var pageAnchors = document.querySelectorAll('a[href^="#block-"]');
 
-  pageAnchors.forEach(function (link) {
+//   pageAnchors.forEach(function (link) {
 
-    link.addEventListener('click', function (evt) {
-      evt.preventDefault();
+//     link.addEventListener('click', function (evt) {
+//       evt.preventDefault();
 
-      var blockID = link.getAttribute('href');
-      document.querySelector(blockID).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });
-  });
-})();
+//       var blockID = link.getAttribute('href');
+//       document.querySelector(blockID).scrollIntoView({
+//         behavior: 'smooth',
+//         block: 'start'
+//       });
+//     });
+//   });
+// })();
 
-// Маска ввода телефона
-(function () {
-  var inputTel = document.querySelector('input[type="tel"]');
+// // Маска ввода телефона
+// (function () {
+//   var inputTel = document.querySelector('input[type="tel"]');
 
-  if (inputTel) {
-    var onKeyPress = function (evt) {
-      if (evt.keyCode < 48 || evt.keyCode > 57) {
-        evt.preventDefault();
-      }
-    };
+//   if (inputTel) {
+//     var onKeyPress = function (evt) {
+//       if (evt.keyCode < 48 || evt.keyCode > 57) {
+//         evt.preventDefault();
+//       }
+//     };
 
-    var onKeyDown = function (evt) {
-      if (evt.key === 'Backspace' && inputTel.value.length <= 2) {
-        evt.preventDefault();
-      }
-    };
+//     var onKeyDown = function (evt) {
+//       if (evt.key === 'Backspace' && inputTel.value.length <= 2) {
+//         evt.preventDefault();
+//       }
+//     };
 
-    var onFocus = function () {
-      if (inputTel.value.length === 0) {
-        inputTel.value = '+7';
-        inputTel.selectionStart = inputTel.value.length;
-      }
-    };
+//     var onFocus = function () {
+//       if (inputTel.value.length === 0) {
+//         inputTel.value = '+7';
+//         inputTel.selectionStart = inputTel.value.length;
+//       }
+//     };
 
-    var onBlur = function () {
-      if (inputTel.value === '+7') {
-        inputTel.value = '';
-      }
-    };
+//     var onBlur = function () {
+//       if (inputTel.value === '+7') {
+//         inputTel.value = '';
+//       }
+//     };
 
-    var onClick = function () {
-      if (inputTel.selectionStart < 2) {
-        inputTel.selectionStart = inputTel.value.length;
-      }
-    };
+//     var onClick = function () {
+//       if (inputTel.selectionStart < 2) {
+//         inputTel.selectionStart = inputTel.value.length;
+//       }
+//     };
 
-    inputTel.addEventListener('keypress', onKeyPress);
-    inputTel.addEventListener('keydown', onKeyDown);
-    inputTel.addEventListener('focus', onFocus);
-    inputTel.addEventListener('blur', onBlur);
-    inputTel.addEventListener('click', onClick);
-  }
-})();
+//     inputTel.addEventListener('keypress', onKeyPress);
+//     inputTel.addEventListener('keydown', onKeyDown);
+//     inputTel.addEventListener('focus', onFocus);
+//     inputTel.addEventListener('blur', onBlur);
+//     inputTel.addEventListener('click', onClick);
+//   }
+// })();
 
 // Закрытие аккордеона при повторном нажатии
 (function () {
   var accordeonButton = document.querySelectorAll('.accordeon__checkbox');
 
-  function clickRadio() {
+  function clickRadio(evt) {
+    var target = evt.target;
+
     for (var i = 0; i < accordeonButton.length; i++) {
-      if (accordeonButton[i] != this) {
+      if (accordeonButton[i] !== target) {
         accordeonButton[i].oldChecked = false;
       }
     }
 
-    if (this.oldChecked) {
-      this.checked = false;
+    if (target.oldChecked) {
+      target.checked = false;
     }
 
-    this.oldChecked = this.checked;
+    target.oldChecked = target.checked;
   }
 
   for (var i = 0; i < accordeonButton.length; i++) {
-    accordeonButton[i].addEventListener('click', clickRadio)
+    accordeonButton[i].addEventListener('click', clickRadio);
   }
 })();

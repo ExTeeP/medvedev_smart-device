@@ -5,18 +5,21 @@ $color-black: rgb(0, 0, 0);
 $color-dark-blue: rgb(27, 45, 55);
 $color-dark-blue-a50: rgba(27, 45, 55, 0.5);
 $color-white: rgb(255, 255, 255);
+$color-grey: rgb(102, 102, 102);
 $color-grey-a20: rgba(98, 105, 98, 0.2);
 $color-background: rgb(27, 45, 55);
 
 // Отступы
 $mobile-padding: 15px;
 $tablet-padding: 25px;
-$desktop-padding: 73px;
+$desktop-padding: 25px;
 
 // Размеры вьюпорта
 $mobile-width: 767.8px;
 $tablet-width: 1023.8px;
 $desktop-width: 1024px;
+
+$container: 1220px;
 
 $additional-container: 1440px; // 1414px??
 $additional-padding: 12px;

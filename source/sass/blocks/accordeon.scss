@@ -4,9 +4,10 @@
   }
 }
 
-.accordeon__label h4 {
+.accordeon__label {
   margin: 0;
   margin-bottom: 20px;
+  display: block;
   font-family: $main-font;
   font-size: 15px;
   line-height: 16px;
