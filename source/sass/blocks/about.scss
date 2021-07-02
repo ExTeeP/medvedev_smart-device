@@ -1,0 +1,127 @@
+.about {
+  padding-top: 75px;
+  font-family: $second-font;
+  color: $color-grey;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 26px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 38px;
+  }
+}
+
+.about__inner {
+  padding-left: 205px;
+  position: relative;
+
+  @media (max-width: $tablet-width) {
+    padding-left: 213px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-left: $mobile-padding;
+  }
+
+  &::before {
+    content: "";
+    width: 220px;
+    height: 317px;
+    position: absolute;
+    top: 5px;
+    left: -5px;
+    background-image: url("../img/decore-about-desktop@1x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @supports (background: url("../img/decore-about-desktop@1x.webp")) {
+      background-image: url("../img/decore-about-desktop@1x.webp");
+    }
+
+    @media (min-resolution: $retina-dppx) {
+      background-image: url("../img/decore-about-desktop@2x.png");
+
+      @supports (background: url("../img/decore-about-desktop@2x.webp")) {
+        background-image: url("../img/decore-about-desktop@2x.webp");
+      }
+    }
+
+    @media (max-width: $tablet-width) {
+      width: 251px;
+      height: 362px;
+      top: -2px;
+      left: -8px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+}
+
+.about h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: $main-font;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 51px;
+
+  @media (max-width: $tablet-width) {
+    margin-bottom: 26px;
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 39px;
+  }
+}
+
+.about p {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 40px;
+  }
+}
+
+.about__text-desktop {
+  display: block;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.about__text-tablet {
+  display: none;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+  }
+}
+
+.about__text-tablet p {
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 9px;
+  }
+}
+
+.about__button-wrapper {
+  display: flex;
+  padding-top: 10px;
+}
+
+.about__button {
+  margin: 10px;
+  margin-left: 0;
+  min-width: 180px;
+}

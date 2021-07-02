@@ -1,7 +1,7 @@
 .button {
   margin: 0;
   padding: 10px 20px;
-  width: 100%;
+  // width: 100%;
   min-height: 55px;
   display: flex;
   justify-content: center;
@@ -23,23 +23,50 @@
   &:focus,
   &:hover,
   &:active {
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     background-color: transparent;
     border: 1px solid $color-white;
+    transition:
+      background-color 0.2s ease-out,
+      border-color 0.2s ease-out;
   }
+}
+
+.button--second,
+.button--third {
+  min-width: 180px;
+  min-height: 45px;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .button--second {
   background-color: transparent;
-  border: 1px solid $color-white;
-  font-size: 14px;
-  line-height: 16px;
+  border: 1px solid $color-white-a20;
 
   &:focus,
   &:hover,
   &:active {
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     background-color: $color-accent;
     border-color: $color-accent;
+    transition:
+      background-color 0.2s ease-out,
+      border-color 0.2s ease-out;
+  }
+}
+
+.button--third {
+  color: $color-accent;
+  background-color: transparent;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $color-white;
+    background-color: $color-accent;
+    border-color: $color-accent;
+    transition:
+      background-color 0.2s ease-out,
+      border-color 0.2s ease-out,
+      color 0.2s ease-out;
   }
 }
