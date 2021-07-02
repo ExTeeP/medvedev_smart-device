@@ -1,14 +1,17 @@
 .about {
   padding-top: 75px;
+  padding-bottom: 100px;
   font-family: $second-font;
   color: $color-grey;
 
   @media (max-width: $tablet-width) {
     padding-top: 26px;
+    padding-bottom: 73px;
   }
 
   @media (max-width: $mobile-width) {
     padding-top: 38px;
+    padding-bottom: 55px;
   }
 }
 
