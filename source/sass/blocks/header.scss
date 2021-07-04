@@ -1,5 +1,8 @@
 .header {
   padding-top: 32px;
+  position: absolute;
+  width: 100%;
+  top: 0;
   color: $color-white;
   background-color: transparent;
   z-index: 20;
@@ -132,4 +135,5 @@
 
 .header__button-call {
   margin: 4.5px 0;
+  border-color: $color-white-a20;
 }

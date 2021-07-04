@@ -41,21 +41,21 @@
       </ul>
 
       <div class="header__button-wrapper">
-        <button class="header__button-call button button--second">Заказать звонок</button>
+        <button class="header__button-call button button--second" id="button-callback">Заказать звонок</button>
       </div>
 
     </div>
   </header>
 
   <main class="page__main">
-    <h1 class="visually-hidden"></h1>
+    <h1 class="visually-hidden">Smart Device</h1>
 
     <section class="greeting">
       <div class="additional-container greeting__inner">
         <h2>Печатные платы</h2>
         <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
 
-        <a class="greeting__button button" href="#block-">
+        <a class="greeting__button button" href="#block-feedback">
           <span class="greeting__button-text-desktop">Получить бесплатную консультацию</span>
           <span class="greeting__button-text-mobile">Бесплатная консультация</span>
         </a>
@@ -70,13 +70,13 @@
             <img width="705" height="515" src="./img/circuit-desktop@1x.png" srcset="./img/circuit-desktop@2x.png 2x" alt="Печатные платы для ваших компьютеров">
           </picture>
         </div>
-        <a class="greeting__scroll-button">
+        <a href="#block-advanteges" class="greeting__scroll-button">
           Скролл вниз
         </a>
       </div>
     </section>
 
-    <section class="advantages">
+    <section class="advantages" id="block-advanteges">
       <div class="container advantages__inner">
         <h2 class="visually-hidden">Наши преимущества</h2>
 
@@ -130,33 +130,35 @@
           </li>
         </ul>
       </div>
-    </section>
 
-    <section class="about">
-      <div class="container about__inner">
-        <h2>О компании</h2>
-        <p>
-          Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997
-          года. Выполняем срочные заказы и пилотные образцы до 10 дней.
-        </p>
-        <div class="about__text-desktop">
+      <section class="about">
+        <div class="container about__inner">
+          <h2>О компании</h2>
           <p>
-            Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND. Печатные
-            платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог (РЖД),
-            РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители
-            светотехники России.
+            Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997
+            года. Выполняем срочные заказы и пилотные образцы до 10 дней.
           </p>
+          <div class="about__text-desktop">
+            <p>
+              Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND.
+              Печатные
+              платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог (РЖД),
+              РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители
+              светотехники России.
+            </p>
+          </div>
+          <div class="about__text-tablet">
+            <p>
+              Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND.
+              Печатные
+              платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог..
+            </p>
+          </div>
+          <div class="about__button-wrapper">
+            <a class="about__button button button--third">Подробнее</a>
+          </div>
         </div>
-        <div class="about__text-tablet">
-          <p>
-            Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND. Печатные
-            платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог..
-          </p>
-        </div>
-        <div class="about__button-wrapper">
-          <a class="about__button button button--third">Подробнее</a>
-        </div>
-      </div>
+      </section>
     </section>
 
     <section class="service">
@@ -222,6 +224,44 @@
             </a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="feedback" id="block-feedback">
+      <div class="container feedback__inner">
+        <div class="feedback__content">
+          <h2>Остались вопросы? Задайте их нам!</h2>
+          <p>Мы проконсультируем Вас бесплатно</p>
+        </div>
+
+        <div class="feedback__form feedback-form">
+          <form action="https://echo.htmlacademy.ru" method="post">
+            <div class="feedback-form__item">
+              <label class="visually-hidden" for="customer-name">Введите Ваше Имя</label>
+              <input type="text" name="customer-name" id="customer-name" placeholder="Имя" minlength="2" maxlength="50" required="">
+            </div>
+
+            <div class="feedback-form__item">
+              <label class="visually-hidden" for="customer-phone">Введите Ваш номер телефона</label>
+              <input type="tel" name="customer-phone" id="customer-phone" placeholder="Телефон" required="">
+            </div>
+
+            <div class="feedback-form__message">
+              <textarea name="customer-message" placeholder="Ваш вопрос" required=""></textarea>
+            </div>
+
+            <div class="feedback-form__footer">
+              <div class="feedback-form__item-checkbox">
+                <input class="feedback-form__checkbox" type="checkbox" name="customer-agreement" id="customer-agreement" required="">
+                <label for="customer-agreement">
+                  Я согласен на обработку персональных данных
+                </label>
+              </div>
+
+              <button class="feedback-form__button button button--second" type="submit">Задать вопрос</button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -336,6 +376,52 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal hidden" id="modal-feedback">
+    <div class="contaier modal__inner">
+      <div class="modal__content">
+        <h2>Закажите звонок</h2>
+        <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+      </div>
+
+      <div class="modal__form feedback-form">
+        <form action="https://echo.htmlacademy.ru" method="post">
+          <div class="feedback-form__item">
+            <label class="visually-hidden" for="modal-customer-name">Введите Ваше Имя</label>
+            <input type="text" name="modal-customer-name" id="modal-customer-name" placeholder="Имя" minlength="2" maxlength="50" required="">
+          </div>
+
+          <div class="feedback-form__item">
+            <label class="visually-hidden" for="modal-customer-phone">Введите Ваш номер телефона</label>
+            <input type="tel" name="modal-customer-phone" id="modal-customer-phone" placeholder="Телефон" required="">
+          </div>
+
+          <div class="feedback-form__message">
+            <textarea name="modal-customer-message" placeholder="Ваш вопрос" required=""></textarea>
+          </div>
+
+          <div class="feedback-form__footer">
+            <div class="feedback-form__item-checkbox">
+              <input class="feedback-form__checkbox" type="checkbox" name="modal-customer-agreement" id="modal-customer-agreement" required="">
+              <label for="modal-customer-agreement">
+                Я согласен на обработку персональных данных
+              </label>
+            </div>
+
+            <button class="feedback-form__button button button--second" type="submit">Отправить</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal__close">
+        <button class="modal__close-button" type="button">
+          <span class="visually-hidden">Закрыть меню</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/vendors.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

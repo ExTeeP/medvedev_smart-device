@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-color: $color-background;
   color: $color-white;
+  overflow-x: hidden;
 
   @supports (background: url("../img/background-wave-desktop@1x.webp")) {
     background-image: url("../img/background-wave-desktop@1x.webp");
@@ -213,6 +214,7 @@
   left: -36px;
   bottom: 117px;
   cursor: pointer;
+  color: $color-white-a50;
 
   @media (max-width: $tablet-width) {
     display: none;

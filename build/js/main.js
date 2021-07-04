@@ -1,146 +1,149 @@
 'use strict';
 
-// document.documentElement.classList.remove('nojs');
+document.documentElement.classList.remove('nojs');
 
-// // Оптимизация ресайза окна
-// (function () {
-//   var throttle = function (type, name, obj) {
-//     obj = obj || window;
-//     var running = false;
+// Оптимизация ресайза окна
+(function () {
+  var throttle = function (type, name, obj) {
+    obj = obj || window;
+    var running = false;
 
-//     var func = function () {
-//       if (running) {
-//         return;
-//       }
+    var func = function () {
+      if (running) {
+        return;
+      }
 
-//       running = true;
+      running = true;
 
-//       requestAnimationFrame(function () {
-//         obj.dispatchEvent(new CustomEvent(name));
-//         running = false;
-//       });
-//     };
+      requestAnimationFrame(function () {
+        obj.dispatchEvent(new CustomEvent(name));
+        running = false;
+      });
+    };
 
-//     obj.addEventListener(type, func);
-//   };
+    obj.addEventListener(type, func);
+  };
 
-//   throttle('resize', 'optimizedResize');
-// })();
+  throttle('resize', 'optimizedResize');
+})();
 
-// // Переключаетль меню
-// (function () {
-//   var MAX_WIDTH = 1023;
+// Показ модального окна
+(function () {
+  var buttonCallback = document.querySelector('#button-callback');
+  var feedbackModal = document.querySelector('#modal-feedback');
+  var closeModalButtons = feedbackModal.querySelectorAll('.modal__close-button');
+  var modalForm = feedbackModal.querySelector('.modal__form');
+  var nameField = modalForm.querySelector('#modal-customer-name');
+  var telField = modalForm.querySelector('#modal-customer-phone');
+  var messageField = modalForm.querySelector('#modal-customer-agreement');
 
-//   var toggle = document.querySelector('.burger');
-//   var menu = document.querySelector('.header__nav');
+  var isStorageSupport = true;
+  var storageTel = '';
+  var storageName = '';
+  var storageMessage = '';
 
-//   var changeButtonLabel = function () {
-//     if (toggle.classList.contains('burger__active')) {
-//       toggle.children[0].innerText = 'Закрыть меню';
-//     } else {
-//       toggle.children[0].innerText = 'Открыть меню';
-//     }
-//   };
+  try {
+    storageTel = localStorage.getItem('tel');
+    storageName = localStorage.getItem('name');
+    storageMessage = localStorage.getItem('message');
+  } catch (err) {
+    isStorageSupport = false;
+  }
 
-//   var showerMenu = function () {
-//     document.documentElement.classList.toggle('page--menu-open');
-//     toggle.classList.toggle('burger__active');
-//     menu.classList.toggle('header__menu-open');
+  var showModal = function (element) {
+    document.body.classList.add('page--modal-open');
+    element.classList.add('active-modal');
+    element.classList.remove('hidden');
+    document.addEventListener('keydown', onModalEscPress);
+    element.addEventListener('click', onOverlayClick);
+  };
 
-//     changeButtonLabel();
-//   };
+  // Закрытие модального окна
+  var closeModal = function () {
+    var element = document.querySelector('.active-modal');
 
-//   var onMenuLinkClick = function (evt) {
-//     if (evt.target.tagName === 'A') {
-//       showerMenu();
-//     }
-//   };
+    document.body.classList.remove('page--modal-open');
+    element.classList.remove('active-modal');
+    element.classList.add('hidden');
+    document.removeEventListener('keydown', onModalEscPress);
+  };
 
-//   var onMenuButtonClick = function () {
-//     showerMenu();
-//   };
+  var onOverlayClick = function (evt) {
+    if (evt.target.classList.contains('modal')) {
+      closeModal();
+    }
+  };
 
-//   var menuToggleHandlers = function () {
-//     if (window.innerWidth > MAX_WIDTH) {
-//       toggle.removeEventListener('click', onMenuButtonClick);
-//       menu.removeEventListener('click', onMenuLinkClick);
-//     } else {
-//       toggle.addEventListener('click', onMenuButtonClick);
-//       menu.addEventListener('click', onMenuLinkClick);
-//     }
-//   };
+  // Нажатие на Esc закрывает окно
+  var onModalEscPress = function (evt) {
+    if (evt.key === 'Escape') {
+      evt.preventDefault();
+      closeModal();
+    }
+  };
 
-//   toggle.addEventListener('click', onMenuButtonClick);
-//   menu.addEventListener('click', onMenuLinkClick);
+  var showFeedbackModal = function () {
+    showModal(feedbackModal);
+    var userName = feedbackModal.querySelector('#modal-customer-name');
 
-//   menuToggleHandlers();
+    if (storageTel && storageName && storageMessage) {
+      telField.value = storageTel;
+      nameField.value = storageName;
+      messageField.value = storageMessage;
+      feedbackModal.focus();
+    } else {
+      userName.focus();
+    }
+  };
 
-//   window.addEventListener('optimizedResize', function () {
-//     menuToggleHandlers();
-//   });
-// })();
+  var onFormModalSubmit = function (evt) {
+    evt.preventDefault();
+    closeModal();
+  };
 
-// // Плавная прокрутка по якорям
-// (function () {
-//   var pageAnchors = document.querySelectorAll('a[href^="#block-"]');
+  buttonCallback.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    showFeedbackModal(evt);
+  });
 
-//   pageAnchors.forEach(function (link) {
+  closeModalButtons.forEach(function (element) {
+    element.addEventListener('click', function () {
+      closeModal();
+    });
+  });
 
-//     link.addEventListener('click', function (evt) {
-//       evt.preventDefault();
+  modalForm.addEventListener('submit', onFormModalSubmit);
+})();
 
-//       var blockID = link.getAttribute('href');
-//       document.querySelector(blockID).scrollIntoView({
-//         behavior: 'smooth',
-//         block: 'start'
-//       });
-//     });
-//   });
-// })();
+// Плавная прокрутка по якорям
+(function () {
+  var pageAnchors = document.querySelectorAll('a[href^="#block-"]');
 
-// // Маска ввода телефона
-// (function () {
-//   var inputTel = document.querySelector('input[type="tel"]');
+  pageAnchors.forEach(function (link) {
 
-//   if (inputTel) {
-//     var onKeyPress = function (evt) {
-//       if (evt.keyCode < 48 || evt.keyCode > 57) {
-//         evt.preventDefault();
-//       }
-//     };
+    link.addEventListener('click', function (evt) {
+      evt.preventDefault();
 
-//     var onKeyDown = function (evt) {
-//       if (evt.key === 'Backspace' && inputTel.value.length <= 2) {
-//         evt.preventDefault();
-//       }
-//     };
+      var blockID = link.getAttribute('href');
+      document.querySelector(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
+})();
 
-//     var onFocus = function () {
-//       if (inputTel.value.length === 0) {
-//         inputTel.value = '+7';
-//         inputTel.selectionStart = inputTel.value.length;
-//       }
-//     };
+// Маска ввода телефона
+(function () {
+  var inputTel = document.querySelectorAll('input[type="tel"]');
+  var im = new Inputmask('+7 (999) 999-99-99');
 
-//     var onBlur = function () {
-//       if (inputTel.value === '+7') {
-//         inputTel.value = '';
-//       }
-//     };
 
-//     var onClick = function () {
-//       if (inputTel.selectionStart < 2) {
-//         inputTel.selectionStart = inputTel.value.length;
-//       }
-//     };
+  inputTel.forEach(function (it) {
+    im.mask(it);
+  });
 
-//     inputTel.addEventListener('keypress', onKeyPress);
-//     inputTel.addEventListener('keydown', onKeyDown);
-//     inputTel.addEventListener('focus', onFocus);
-//     inputTel.addEventListener('blur', onBlur);
-//     inputTel.addEventListener('click', onClick);
-//   }
-// })();
+})();
 
 // Закрытие аккордеона при повторном нажатии
 (function () {
@@ -165,4 +168,13 @@
   for (var i = 0; i < accordeonButton.length; i++) {
     accordeonButton[i].addEventListener('click', clickRadio);
   }
+})();
+
+// Форма отправки
+(function () {
+  var feedbackForm = document.querySelector('.feedback-form form');
+
+  feedbackForm.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+  });
 })();

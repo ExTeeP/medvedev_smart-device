@@ -1,16 +1,95 @@
 .advantages {
   padding-top: 112px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 872px;
+    height: 874px;
+    top: 444px;
+    left: -296px;
+    background-image: url("../img/decore-triangle-2.svg");
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 872px;
+    height: 874px;
+    top: 143px;
+    left: 558px;
+    transform: rotate(180deg);
+    background-image: url("../img/decore-triangle-2.svg");
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
 
   @media (max-width: $tablet-width) {
     padding-top: 54px;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      top: 86px;
+      left: 210px;
+    }
   }
 
   @media (max-width: $mobile-width) {
     padding-top: 37px;
+
+    &::after {
+      top: 648px;
+      left: -121px;
+    }
   }
 }
 
 .advantages__inner {
+  position: relative;
+
+  &::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 336px;
+    height: 324px;
+    top: -67px;
+    left: -148px;
+    transform: rotate(180deg);
+    background-image: url("../img/decore-triangle-1.svg");
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 336px;
+    height: 324px;
+    top: 284px;
+    left: 1206px;
+    background-image: url("../img/decore-triangle-1.svg");
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  @media (max-width: $tablet-width) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
   @media (max-width: $mobile-width) {
     padding: 0;
   }
@@ -22,6 +101,7 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  z-index: 20;
 
   @media (max-width: $tablet-width) {
     justify-content: center;
@@ -39,6 +119,7 @@
   width: calc(50% - 15px);
   max-width: 570px;
   min-height: 299px;
+  background-color: $color-white;
 
   @media (max-width: $tablet-width) {
     margin-bottom: 30px;
