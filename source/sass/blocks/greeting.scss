@@ -214,7 +214,14 @@
   left: -36px;
   bottom: 117px;
   cursor: pointer;
-  color: $color-white-a50;
+  color: $color-white;
+  opacity: 0.5;
+
+  &:focus,
+  &:hover {
+    transition: color 0.2s ease-out;
+    color: $color-accent;
+  }
 
   @media (max-width: $tablet-width) {
     display: none;

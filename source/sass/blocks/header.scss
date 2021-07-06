@@ -94,7 +94,7 @@
 
 .header__link svg {
   margin-right: 15px;
-  color: inherit;
+  color: $color-accent;
 
   @media (max-width: $tablet-width) {
     margin-right: 0;
