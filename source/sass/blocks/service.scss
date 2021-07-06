@@ -6,7 +6,7 @@
 
   @media (max-width: $tablet-width) {
     padding-top: 50px;
-    padding-bottom: 31px;
+    padding-bottom: 32px;
   }
 
   @media (max-width: $mobile-width) {
@@ -70,6 +70,7 @@
   min-height: 620px;
   padding: 0 15px;
   padding-bottom: 30px;
+  display: flex;
 
   @media (max-width: $tablet-width) {
     width: 100%;
@@ -86,12 +87,15 @@
 }
 
 .service__card {
+  width: 100%;
   position: relative;
   color: inherit;
 
   &::after {
     content: "";
     display: block;
+    position: relative;
+    z-index: 10;
     margin-top: -63px;
     margin-left: auto;
     width: 63px;
@@ -101,19 +105,13 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-
-  @media (max-width: $tablet-width) {
-  }
-
-  @media (max-width: $mobile-width) {
-  }
 }
 
 .service__card h3 {
   margin: 0;
-  min-width: 165px;
+  max-width: 165px;
   position: absolute;
-  top: 65px;
+  top: 50px;
   left: 44px;
   font-weight: normal;
   font-size: 20px;
@@ -121,23 +119,28 @@
   z-index: 10;
 
   @media (max-width: $tablet-width) {
-    top: 55px;
+    top: 40px;
   }
 
   @media (max-width: $mobile-width) {
-    top: 35px;
+    top: 20px;
     left: 35px;
   }
 }
 
-.service__card img {
+.service__card-picture {
   width: 100%;
+  overflow: hidden;
+}
+
+.service__card-picture img {
+  width: 100%;
+  height: 620px;
   opacity: 0.2;
+  object-fit: cover;
 
   @media (max-width: $tablet-width) {
-  }
-
-  @media (max-width: $mobile-width) {
+    height: 256px;
   }
 }
 

@@ -1,14 +1,9 @@
-.accordeon:hover .accordeon__label {
-  @media (max-width: $mobile-width) {
-    cursor: pointer;
-  }
-}
-
-.accordeon__label {
+.accordeon__title {
   margin: 0;
   margin-bottom: 20px;
   display: block;
   font-family: $main-font;
+  font-weight: normal;
   font-size: 15px;
   line-height: 16px;
   letter-spacing: 0.05em;
@@ -19,6 +14,7 @@
     margin-bottom: 0;
     padding-top: 29px;
     padding-bottom: 27px;
+    cursor: pointer;
   }
 }
 
@@ -33,10 +29,43 @@
   }
 }
 
+.accordeon__button {
+  display: none;
+
+  @media (max-width: $mobile-width) {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: absolute;
+    top: 28px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+    background: none;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 2px;
+      background-color: #C4C4C4;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+}
+
 .accordeon__container {
   @media (max-width: $mobile-width) {
-    overflow: hidden;
+    height: 0;
     position: relative;
+    overflow: hidden;
   }
 }
 
@@ -46,10 +75,13 @@
   padding: 0;
   padding-top: 5px;
   list-style: none;
+}
 
-  @media (max-width: $mobile-width) {
-    margin-top: -100%;
-    transition: all 400ms;
+.accordeon__content--colums-2 {
+  column-count: 2;
+
+  @media (max-width: $tablet-width) {
+    column-count: 1;
   }
 }
 
@@ -67,31 +99,18 @@
     color: $color-accent;
   }
 }
-.accordeon__checkbox-custom {
+
+.accordeon__nojs .accordeon__button {
   display: none;
+}
 
+.accordeon__nojs .accordeon__container {
   @media (max-width: $mobile-width) {
-    display: block;
-
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      width: 16px;
-      height: 2px;
-      background-color: #C4C4C4;
-      position: absolute;
-      top: 36px;
-      right: 2px;
-    }
-
-    &::after {
-      transform: rotate(90deg);
-    }
+    height: 100%;
   }
 }
 
-.accordeon__checkbox:checked + .accordeon__checkbox-custom {
+.accordeon__active .accordeon__button {
   @media (max-width: $mobile-width) {
     &::after {
       height: 0;
@@ -99,8 +118,8 @@
   }
 }
 
-.accordeon__checkbox:checked ~ .accordeon__container > .accordeon__content {
+.accordeon__active .accordeon__container {
   @media (max-width: $mobile-width) {
-    margin-top: 0;
+    height: 100%;
   }
 }

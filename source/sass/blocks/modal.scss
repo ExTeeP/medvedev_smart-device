@@ -5,9 +5,6 @@
   height: 100vh;
   z-index: 30;
   background-color: $color-black-a50;
-
-  @media (max-width: $mobile-width) {
-  }
 }
 
 .modal.hidden {
@@ -46,81 +43,16 @@
   font-family: $second-font;
   font-size: 16px;
   line-height: 22px;
-
-  @media (max-width: $tablet-width) {
-    // margin-bottom: 54px;
-  }
-
-  @media (max-width: $mobile-width) {
-    // margin-bottom: 26px;
-  }
 }
 
-.modal__form {
-  display: flex;
-  width: 410px;
-  flex-direction: column;
-
-  @media (max-width: $mobile-width) {
-    width: 100%;
-    padding: 0;
-    box-shadow: none;
-  }
-}
-
-.modal__form input {
-  padding-left: 23px;
-  height: 52px;
-}
-
-.modal__form textarea {
-  padding-left: 23px;
-  height: 104px;
-}
-
-.modal__form .feedback-form__item,
-.modal__form .feedback-form__message {
-  margin-bottom: 30px;
-}
-
-.modal__form .feedback-form__button {
-  margin-bottom: 28px;
-  margin-right: 0;
-  max-width: 410px;
-}
-
-.modal__form .feedback-form__footer {
-  max-width: 410px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal__form .feedback-form__item-checkbox > label {
-  padding-right: 20px;
-  padding-left: 45px;
-
-  &::before {
-    top: 2px;
-    left: -1px;
-  }
-
-  &::after {
-    top: 7px;
-    left: 3px;
-  }
-}
-
-.modal__input-error {
-  display: none;
-  position: absolute;
-  top: -20px;
-  left: 2px;
-  font-size: 12px;
-  line-height: 15px;
-  // color: var(--color-accent);
-}
+// .modal__input-error {
+//   display: none;
+//   position: absolute;
+//   top: -20px;
+//   left: 2px;
+//   font-size: 12px;
+//   line-height: 15px;
+// }
 
 .modal__close {
   display: flex;
@@ -161,10 +93,10 @@
   transform: rotate(45deg);
 }
 
-.modal__input:invalid:not(:placeholder-shown) + .modal__input-error {
-  display: block;
-}
+// .modal__input:invalid:not(:placeholder-shown) + .modal__input-error {
+//   display: block;
+// }
 
-.modal__input:valid:not(:placeholder-shown) {
-  border-color: rgb(23, 160, 23);
-}
+// .modal__input:valid:not(:placeholder-shown) {
+//   border-color: rgb(23, 160, 23);
+// }

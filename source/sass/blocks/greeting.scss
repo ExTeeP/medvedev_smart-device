@@ -1,6 +1,6 @@
 .greeting {
   min-height: 878px;
-  background-image: url("../img/background-wave-desktop@1x.png");
+  background-image: url("../img/background-wave@1x.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -8,15 +8,15 @@
   color: $color-white;
   overflow-x: hidden;
 
-  @supports (background: url("../img/background-wave-desktop@1x.webp")) {
-    background-image: url("../img/background-wave-desktop@1x.webp");
+  @supports (background: url("../img/background-wave@1x.webp")) {
+    background-image: url("../img/background-wave@1x.webp");
   }
 
   @media (min-resolution: $retina-dppx) {
-    background-image: url("../img/background-wave-desktop@2x.png");
+    background-image: url("../img/background-wave@2x.png");
 
-    @supports (background: url("../img/background-wave-desktop@2x.webp")) {
-      background-image: url("../img/background-wave-desktop@2x.webp");
+    @supports (background: url("../img/background-wave@2x.webp")) {
+      background-image: url("../img/background-wave@2x.webp");
     }
   }
 
@@ -139,7 +139,7 @@
 }
 
 .greeting__button-text-desktop {
-  display: block;
+  display: inline;
 
   @media (max-width: $mobile-width) {
     display: none;
@@ -150,7 +150,7 @@
   display: none;
 
   @media (max-width: $mobile-width) {
-    display: block;
+    display: inline;
   }
 }
 

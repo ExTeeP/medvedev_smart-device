@@ -198,11 +198,3 @@
     padding-top: 30px;
   }
 }
-.footer__nav .accordeon__content {
-  column-count: 2;
-  list-style: none;
-
-  @media (max-width: $tablet-width) {
-    column-count: 1;
-  }
-}

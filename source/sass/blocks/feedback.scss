@@ -1,10 +1,11 @@
 .feedback {
   padding-top: 92px;
-  padding-bottom: 85px;
+  padding-bottom: 84px;
   position: relative;
   background-color: $color-accent;
   color: $color-white;
   z-index: 10;
+  overflow-x: hidden;
 
   &::before {
     content: "";
@@ -38,7 +39,7 @@
 
   @media (max-width: $tablet-width) {
     padding-top: 80px;
-    padding-bottom: 74px;
+    padding-bottom: 79px;
 
     &::before,
     &::after {
@@ -112,7 +113,7 @@
 .feedback__content {
   margin-left: 30px;
 
-  @media (max-width: $tablet-width) {
+  @media (max-width: $mobile-width) {
     margin-left: 0;
   }
 }
@@ -158,22 +159,5 @@
 
   @media (max-width: $tablet-width) {
     max-width: 620px;
-  }
-}
-
-.feedback__form .feedback-form__item,
-.feedback__form .feedback-form__message {
-  margin-left: 30px;
-
-  @media (max-width: $mobile-width) {
-    margin-left: 0;
-  }
-}
-
-.feedback__form .feedback-form__footer {
-  margin-left: 30px;
-
-  @media (max-width: $mobile-width) {
-    margin-left: 0;
   }
 }

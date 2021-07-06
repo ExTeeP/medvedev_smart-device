@@ -93,10 +93,19 @@
   @media (max-width: $mobile-width) {
     margin-bottom: 40px;
   }
+
+  &:last-child {
+  }
+}
+
+.about p:last-of-type {
+  @media (max-width: $mobile-width) {
+    margin-bottom: 9px;
+  }
 }
 
 .about__text-desktop {
-  display: block;
+  display: inline;
 
   @media (max-width: $tablet-width) {
     display: none;
@@ -107,14 +116,7 @@
   display: none;
 
   @media (max-width: $tablet-width) {
-    display: block;
-  }
-}
-
-.about__text-tablet p {
-
-  @media (max-width: $mobile-width) {
-    margin-bottom: 9px;
+    display: inline;
   }
 }
 

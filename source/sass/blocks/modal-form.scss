@@ -1,4 +1,4 @@
-.feedback-form {
+.modal-form {
   font-weight: normal;
   font-family: $second-font;
   font-size: 16px;
@@ -10,36 +10,34 @@
   }
 }
 
-.feedback-form form {
+.modal-form form {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
 }
 
-.feedback-form__item {
+.modal-form__item {
   width: 270px;
 }
 
-.feedback-form__message {
+.modal-form__message {
   width: 570px;
 }
 
-.feedback-form__item,
-.feedback-form__message {
-  margin-bottom: 40px;
-  margin-left: 30px;
+.modal-form__item,
+.modal-form__message {
+  margin-bottom: 30px;
   flex-grow: 1;
 
   @media (max-width: $mobile-width) {
     width: 100%;
     margin-bottom: 30px;
-    margin-left: 0;
   }
 }
 
-.feedback-form input,
-.feedback-form textarea {
+.modal-form input,
+.modal-form textarea {
   margin: 0;
   width: 100%;
   font-family: inherit;
@@ -50,18 +48,19 @@
   background-color: $color-accent-light;
 }
 
-.feedback-form input {
-  padding: 10px 17px;
-  height: 50px;
+.modal-form input {
+  padding-left: 23px;
+  height: 52px;
 
   @media (max-width: $tablet-width) {
     height: 52px;
   }
 }
 
-.feedback-form textarea {
+.modal-form textarea {
   padding: 10px 16px;
-  height: 154px;
+  padding-left: 23px;
+  height: 104px;
   resize: none;
 
   @media (max-width: $tablet-width) {
@@ -73,28 +72,30 @@
   }
 }
 
-.feedback-form__item input::placeholder,
-.feedback-form__message textarea::placeholder {
+.modal-form__item input::placeholder,
+.modal-form__message textarea::placeholder {
   opacity: 1;
   color: $color-white;
 }
 
-.feedback-form__footer {
+.modal-form__footer {
+  max-width: 410px;
+  width: 100%;
   display: flex;
-  margin-left: 30px;
+  flex-direction: column;
+  align-items: center;
 
   @media (max-width: $mobile-width) {
-    margin-left: 0;
     max-width: 290px;
     flex-direction: column;
     align-items: center;
   }
 }
 
-.feedback-form__button {
-  margin-bottom: 30px;
-  margin-right: 69px;
-  max-width: 270px;
+.modal-form__button {
+  margin-bottom: 28px;
+  margin-right: 0;
+  max-width: 410px;
   width: 100%;
   order: -1;
 
@@ -114,7 +115,7 @@
   }
 }
 
-.feedback-form__item-checkbox {
+.modal-form__item-checkbox {
   margin-top: 6px;
   position: relative;
   font-size: 14px;
@@ -122,7 +123,9 @@
   color: $color-white-a80;
 }
 
-.feedback-form__item-checkbox label {
+.modal-form__item-checkbox label {
+  padding-right: 20px;
+  padding-left: 45px;
   display: block;
   cursor: pointer;
 
@@ -132,8 +135,8 @@
     position: absolute;
     width: 16px;
     height: 16px;
-    top: 3px;
-    left: -31px;
+    top: 2px;
+    left: -1px;
     border: 1px solid $color-white;
 
     @media (max-width: $mobile-width) {
@@ -147,8 +150,8 @@
     position: absolute;
     width: 9px;
     height: 6px;
-    top: 8px;
-    left: -27px;
+    top: 7px;
+    left: 3px;
     background-image: url("../img/icon/icon-check.svg");
     background-repeat: no-repeat;
 
@@ -162,14 +165,14 @@
   }
 }
 
-.feedback-form__checkbox {
+.modal-form__checkbox {
   display: block;
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-.feedback-form__checkbox:checked + label {
+.modal-form__checkbox:checked + label {
 
   &::after {
     display: block;
