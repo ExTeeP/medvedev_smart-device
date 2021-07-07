@@ -139,10 +139,21 @@
 (function () {
   if (document.querySelectorAll('input[type="tel"]')) {
     var inputTel = document.querySelectorAll('input[type="tel"]');
-    var im = new Inputmask('+7 (999) 999-99-99');
+    var im = new Inputmask('+7(999)999-99-99');
+    var REG_EXP_TEL = /\+\d{1}\(\d{3}\)\d{3}-\d{2}-\d{2}/g;
 
     inputTel.forEach(function (it) {
       im.mask(it);
+
+      it.addEventListener('input', function (evt) {
+        if (!REG_EXP_TEL.test(evt.target.value)) {
+          evt.target.setCustomValidity('Введите номер телефона');
+        } else {
+          evt.target.setCustomValidity('');
+        }
+
+        evt.target.reportValidity();
+      });
     });
   }
 })();
@@ -156,8 +167,8 @@
       var accordeonButton = it.children[1];
       var accordeonHeader = it.children[0];
 
-      if (it.classList.contains('accordeon__nojs')) {
-        it.classList.remove('accordeon__nojs');
+      if (it.classList.contains('accordeon--nojs')) {
+        it.classList.remove('accordeon--nojs');
       }
 
       it.addEventListener('click', function (evt) {
@@ -179,9 +190,40 @@
 (function () {
   if (document.querySelector('.feedback-form form')) {
     var feedbackForm = document.querySelector('.feedback-form form');
+    var modalForm = document.querySelector('.modal-form form');
+
+    var sendData = function (onError, body) {
+      fetch('https://echo.htmlacademy.ru',
+          {
+            method: 'POST',
+            body: body,
+          })
+          .catch(function () {
+            onError('Не удалось отправить форму. Попробуйте ещё раз');
+          });
+    };
 
     feedbackForm.addEventListener('submit', function (evt) {
       evt.preventDefault();
+
+      sendData(
+          function () {
+            console.log('error 111!');
+          },
+          new FormData(evt.target)
+      );
+    });
+
+    modalForm.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+
+      sendData(
+          function () {},
+          function () {
+            console.log('error 111!');
+          },
+          new FormData(evt.target)
+      );
     });
   }
 })();

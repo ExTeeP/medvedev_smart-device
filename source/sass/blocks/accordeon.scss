@@ -100,11 +100,11 @@
   }
 }
 
-.accordeon__nojs .accordeon__button {
+.accordeon--nojs .accordeon__button {
   display: none;
 }
 
-.accordeon__nojs .accordeon__container {
+.accordeon--nojs .accordeon__container {
   @media (max-width: $mobile-width) {
     height: 100%;
   }

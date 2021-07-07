@@ -1,11 +1,23 @@
 .social {
   color: $color-grey-light;
 }
+
 .social__list {
   margin: 0;
   padding: 0;
+  max-width: 380px;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
+
+  @media (max-width: $tablet-width) {
+    max-width: 112px;
+  }
+
+  @media (max-width: $mobile-width) {
+    max-width: none;
+    justify-content: center;
+  }
 }
 
 .social__item {
@@ -13,6 +25,20 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @media (max-width: $tablet-width) {
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+
+    &:nth-child(3n) {
+      margin-right: 15px;
+    }
   }
 }
 

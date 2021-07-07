@@ -31,7 +31,7 @@
 
 .greeting__inner {
   padding-top: 266px;
-  padding-right: 650px;
+  padding-right: 250px;
   padding-bottom: 50px;
   min-height: 878px;
   position: relative;
@@ -41,7 +41,6 @@
 
   @media (max-width: $tablet-width) {
     padding-top: 138px;
-    padding-right: 250px;
     min-height: 686px;
   }
 
@@ -50,6 +49,7 @@
     padding-top: 236px;
     padding-left: 18px;
     min-height: 647px;
+    align-items: center;
   }
 }
 
@@ -100,6 +100,7 @@
   @media (max-width: $tablet-width) {
     margin-bottom: 55px;
     padding-left: 114px;
+    max-width: 600px;
     font-size: 18px;
     line-height: 28px;
 
@@ -113,6 +114,7 @@
   @media (max-width: $mobile-width) {
     margin-bottom: 40px;
     padding-left: 48px;
+    max-width: 350px;
     font-size: 16px;
     line-height: 25px;
 
@@ -135,6 +137,7 @@
 
   @media (max-width: $mobile-width) {
     margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -156,8 +159,10 @@
 
 .greeting__image {
   position: absolute;
+  width: 705px;
   top: 258px;
-  right: -63px;
+  // right: -63px;
+  left: 55.5%;
   z-index: -10;
 
   &::before {
@@ -174,9 +179,8 @@
 
   @media (max-width: $tablet-width) {
     width: 465px;
-    height: 340px;
     top: 113px;
-    right: -205px;
+    left: 66%;
 
     &::before {
       background-size: 529px 503px;
@@ -189,9 +193,9 @@
 
   @media (max-width: $mobile-width) {
     width: 301px;
-    height: 220px;
     top: 92px;
     right: -7px;
+    left: auto;
 
     &::before {
       background-size: 505px 480px;

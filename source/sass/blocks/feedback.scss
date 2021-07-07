@@ -68,6 +68,7 @@
     height: 288px;
     background-image: url("../img/paper-airplane@1x.png");
     background-repeat: no-repeat;
+    background-size: contain;
     z-index: -5;
 
     @supports (background: url("../img/paper-airplane@1x.webp")) {

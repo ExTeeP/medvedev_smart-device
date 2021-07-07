@@ -47,6 +47,7 @@
   line-height: inherit;
   color: inherit;
   border: none;
+  border-radius: 0;
   background-color: $color-accent-light;
 }
 
@@ -174,4 +175,8 @@
   &::after {
     display: block;
   }
+}
+
+.feedback-form__checkbox:focus + label::before {
+  outline: auto;
 }

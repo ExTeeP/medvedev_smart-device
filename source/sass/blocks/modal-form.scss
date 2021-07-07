@@ -178,3 +178,7 @@
     display: block;
   }
 }
+
+.modal-form__checkbox:focus + label::before {
+  outline: auto;
+}
