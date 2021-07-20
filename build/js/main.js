@@ -194,23 +194,23 @@
 
     var sendData = function (onError, body) {
       fetch('https://echo.htmlacademy.ru',
-          {
-            method: 'POST',
-            body: body,
-          })
-          .catch(function () {
-            onError('Не удалось отправить форму. Попробуйте ещё раз');
-          });
+        {
+          method: 'POST',
+          body: body,
+        })
+        .catch(function () {
+          onError('Не удалось отправить форму. Попробуйте ещё раз');
+        });
     };
 
     feedbackForm.addEventListener('submit', function (evt) {
       evt.preventDefault();
 
       sendData(
-          function () {
-            console.log('error 111!');
-          },
-          new FormData(evt.target)
+        function () {
+          console.log('error 111!');
+        },
+        new FormData(evt.target)
       );
     });
 
@@ -218,12 +218,71 @@
       evt.preventDefault();
 
       sendData(
-          function () {},
-          function () {
-            console.log('error 111!');
-          },
-          new FormData(evt.target)
+        function () { },
+        function () {
+          console.log('error 111!');
+        },
+        new FormData(evt.target)
       );
     });
   }
+})();
+
+// Свайпер
+(function () {
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 15,
+    loop: true,
+
+    navigation: {
+      nextEl: '.products-slider__button-next',
+      prevEl: '.products-slider__button-prev',
+    },
+
+    pagination: {
+      el: '.products-slider__pagination',
+      type: 'bullets',
+      clickable: true,
+      bulletClass: 'products-slider__bullet',
+      bulletActiveClass: 'products-slider__bullet-active',
+
+      renderBullet: function (index, className) {
+        return (
+          '<button class="' + className + '">' + (index + 1) + '</button>'
+        );
+      },
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 25,
+      },
+
+      1024: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        spaceBetween: 30,
+      },
+    },
+  });
+
+  var setCounterSlides = function () {
+    var bullets = Array.from(document.querySelectorAll('.products-slider__bullet'));
+    var currentCounter = document.querySelector('.products-slider__counter-current');
+    var totalCounter = document.querySelector('.products-slider__counter-total');
+    var currentBullet = bullets.findIndex(function (item) {
+      return item.classList.contains('products-slider__bullet-active');
+    }) + 1;
+
+    totalCounter.textContent = bullets.length;
+    currentCounter.textContent = currentBullet;
+  };
+
+  window.addEventListener('optimizedResize', setCounterSlides);
+  window.addEventListener('load', setCounterSlides);
+  swiper.on('slideChangeTransitionEnd', setCounterSlides);
 })();
